@@ -4,7 +4,7 @@
 #
 Name     : pypi-dns_lexicon
 Version  : 3.9.4
-Release  : 65
+Release  : 66
 URL      : https://files.pythonhosted.org/packages/fa/f4/7614ab0058e67489f4b8277b3434e9c6180e43261dae64a04fe0100d03b6/dns-lexicon-3.9.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/fa/f4/7614ab0058e67489f4b8277b3434e9c6180e43261dae64a04fe0100d03b6/dns-lexicon-3.9.4.tar.gz
 Summary  : Manipulate DNS records on various DNS providers in a standardized/agnostic way
@@ -73,7 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1644889869
+export SOURCE_DATE_EPOCH=1649739470
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
