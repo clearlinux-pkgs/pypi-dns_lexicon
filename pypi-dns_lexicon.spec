@@ -4,7 +4,7 @@
 #
 Name     : pypi-dns_lexicon
 Version  : 3.11.4
-Release  : 76
+Release  : 77
 URL      : https://files.pythonhosted.org/packages/76/9a/5fa6474f41188f17e1c58cc38bb12148882068dcc3271a113c8be18b1523/dns-lexicon-3.11.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/76/9a/5fa6474f41188f17e1c58cc38bb12148882068dcc3271a113c8be18b1523/dns-lexicon-3.11.4.tar.gz
 Summary  : Manipulate DNS records on various DNS providers in a standardized/agnostic way
