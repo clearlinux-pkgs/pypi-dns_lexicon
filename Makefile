@@ -1,5 +1,5 @@
 PKG_NAME := pypi-dns_lexicon
-URL = https://files.pythonhosted.org/packages/94/26/0394bc0d3da5a4d51b255efec699098d95d68d505966b57250a3f1e7e4dc/dns_lexicon-3.11.6.tar.gz
+URL = https://files.pythonhosted.org/packages/c4/34/43be71ffbee123b644afcd63cacdb1323357b7e902edbaaa7dc937fc3457/dns_lexicon-3.11.7.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
