@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-dns_lexicon
-Version  : 3.13.0
-Release  : 86
-URL      : https://files.pythonhosted.org/packages/09/79/fbc54f9399a5861d625ba5db9ea26f182b904b07b63569dcfda95be62fa8/dns_lexicon-3.13.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/09/79/fbc54f9399a5861d625ba5db9ea26f182b904b07b63569dcfda95be62fa8/dns_lexicon-3.13.0.tar.gz
+Version  : 3.14.1
+Release  : 87
+URL      : https://files.pythonhosted.org/packages/86/3e/95b034bfda4145368a0e12d8c88c2d7c38819766e3fb24d44edeb50c4f09/dns_lexicon-3.14.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/86/3e/95b034bfda4145368a0e12d8c88c2d7c38819766e3fb24d44edeb50c4f09/dns_lexicon-3.14.1.tar.gz
 Summary  : Manipulate DNS records on various DNS providers in a standardized/agnostic way
 Group    : Development/Tools
 License  : MIT
@@ -70,10 +70,10 @@ python3 components for the pypi-dns_lexicon package.
 
 
 %prep
-%setup -q -n dns_lexicon-3.13.0
-cd %{_builddir}/dns_lexicon-3.13.0
+%setup -q -n dns_lexicon-3.14.1
+cd %{_builddir}/dns_lexicon-3.14.1
 pushd ..
-cp -a dns_lexicon-3.13.0 buildavx2
+cp -a dns_lexicon-3.14.1 buildavx2
 popd
 
 %build
@@ -81,7 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1691449166
+export SOURCE_DATE_EPOCH=1692027005
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
