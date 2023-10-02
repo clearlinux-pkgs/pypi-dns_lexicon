@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : pypi-dns_lexicon
-Version  : 3.14.1
-Release  : 87
-URL      : https://files.pythonhosted.org/packages/86/3e/95b034bfda4145368a0e12d8c88c2d7c38819766e3fb24d44edeb50c4f09/dns_lexicon-3.14.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/86/3e/95b034bfda4145368a0e12d8c88c2d7c38819766e3fb24d44edeb50c4f09/dns_lexicon-3.14.1.tar.gz
+Version  : 3.15.0
+Release  : 88
+URL      : https://files.pythonhosted.org/packages/8a/8b/87a017e2feaae422321a030e82048d7a1811d8afacfdb324476ab0a6ac25/dns_lexicon-3.15.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/8a/8b/87a017e2feaae422321a030e82048d7a1811d8afacfdb324476ab0a6ac25/dns_lexicon-3.15.0.tar.gz
 Summary  : Manipulate DNS records on various DNS providers in a standardized/agnostic way
 Group    : Development/Tools
 License  : MIT
@@ -60,7 +60,7 @@ Requires: python3-core
 Provides: pypi(dns_lexicon)
 Requires: pypi(beautifulsoup4)
 Requires: pypi(cryptography)
-Requires: pypi(importlib_metadata)
+Requires: pypi(pyotp)
 Requires: pypi(pyyaml)
 Requires: pypi(requests)
 Requires: pypi(tldextract)
@@ -70,10 +70,10 @@ python3 components for the pypi-dns_lexicon package.
 
 
 %prep
-%setup -q -n dns_lexicon-3.14.1
-cd %{_builddir}/dns_lexicon-3.14.1
+%setup -q -n dns_lexicon-3.15.0
+cd %{_builddir}/dns_lexicon-3.15.0
 pushd ..
-cp -a dns_lexicon-3.14.1 buildavx2
+cp -a dns_lexicon-3.15.0 buildavx2
 popd
 
 %build
@@ -81,28 +81,48 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1692027005
+export SOURCE_DATE_EPOCH=1696259610
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FCFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FFLAGS="$FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export CXXFLAGS="$CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
-export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -m64 -march=x86-64-v3 "
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -m64 -march=x86-64-v3 "
 python3 -m build --wheel --skip-dependency-check --no-isolation
 
 popd
 
 %install
+export GCC_IGNORE_WERROR=1
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export NM=gcc-nm
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -O3 -fdebug-types-section -femit-struct-debug-baseonly -ffat-lto-objects -flto=auto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-dns_lexicon
@@ -112,11 +132,11 @@ echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export CXXFLAGS="$CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export FFLAGS="$FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
-export FCFLAGS="$FCFLAGS -m64 -march=x86-64-v3 "
-export LDFLAGS="$LDFLAGS -m64 -march=x86-64-v3 "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -m64 -march=x86-64-v3 "
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -m64 -march=x86-64-v3 "
 pip install --root=%{buildroot}-v3 --no-deps --ignore-installed dist/*.whl
 popd
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
